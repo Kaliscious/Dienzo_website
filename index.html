@@ -263,32 +263,6 @@
         const menu = document.getElementById('navbar-menu');
         menu.classList.remove('active');
       }
-      
-      // Animation on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        setTimeout(() => {
-          fadeElements.forEach(element => {
-            element.style.opacity = 1;
-            element.style.transform = 'translateY(0)';
-          });
-        }, 300);
-        
-        // Animation when scrolling
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = 'translateY(0)';
-            }
-          });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(element => {
-          observer.observe(element);
-        });
-      });
     </script>
     
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
