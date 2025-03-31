@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kahlil Ian R. Dienzo - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Kahlil Ian</a>
+
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <ul id="navbar-menu" class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link" onclick="closeMenu()">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="profile.html" class="navbar-link" onclick="closeMenu()">Profile</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="hobbies.html" class="navbar-link" onclick="closeMenu()">Hobbies</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="about.html" class="navbar-link" onclick="closeMenu()">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="profile" class="profile">
+        <div class="container">
+            <h2 class="fade-in">My Profile</h2>
+
+            <div class="profile-container">
+                <div class="profile-image fade-in">
+                    <img src="Kahlil.jpg" alt="Kahlil Ian R. Dienzo" />
+                </div>
+
+                <div class="profile-info fade-in">
+                    <h3>Kahlil Ian R. Dienzo</h3>
+                    <p>Hello! I'm a student with a passion for anime, manga, and gaming. Get to know me better through this website.</p>
+
+                    <div class="profile-details">
+                        <div class="profile-item">
+                            <h3>Age</h3>
+                            <p>15 years old</p>
+                        </div>
+
+                        <div class="profile-item">
+                            <h3>Birthday</h3>
+                            <p>August 31, 2009</p>
+                        </div>
+
+                        <div class="profile-item">
+                            <h3>Height</h3>
+                            <p>5'7"</p>
+                        </div>
+
+                        <div class="profile-item">
+                            <h3>School</h3>
+                            <p>San Beda College Alabang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navbar-menu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navbar-menu');
+            menu.classList.remove('active');
+        }
+
+        // Add fade-in animation when scrolling
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+                // Set initial state for animation
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+            });
+        });
+    </script>
+</body>
+</html>
