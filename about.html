@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kahlil Ian R. Dienzo - About</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="navbar-logo">Kahlil Ian</a>
+        
+        <div class="navbar-toggle" onclick="toggleMenu()">
+          ☰
+        </div>
+        
+        <ul id="navbar-menu" class="navbar-menu">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" onclick="closeMenu()">Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="profile.html" class="navbar-link" onclick="closeMenu()">Profile</a>
+          </li>
+          <li class="navbar-item">
+            <a href="hobbies.html" class="navbar-link" onclick="closeMenu()">Hobbies</a>
+          </li>
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" onclick="closeMenu()">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="fade-in">About Me</h2>
+        <p class="fade-in">Some fun facts about me that you might find interesting.</p>
+        
+        <div class="about-container">
+          <div class="fun-facts">
+            <div class="fact-card fade-in">
+              <h3>I Love Sleeping</h3>
+              <p>One of my favorite activities is simply sleeping. There's nothing better than a good nap after a long day of school and activities.</p>
+            </div>
+            
+            <div class="fact-card fade-in">
+              <h3>Foodie at Heart</h3>
+              <p>I absolutely love eating food! Trying different cuisines and dishes is something I really enjoy. I'm always open to trying new foods and flavors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2024 Kahlil Ian R. Dienzo. All rights reserved.</p>
+        </div>
+      </footer>
+    </section>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('navbar-menu');
+        menu.classList.toggle('active');
+      }
+      
+      function closeMenu() {
+        const menu = document.getElementById('navbar-menu');
+        menu.classList.remove('active');
+      }
+      
+      // Add fade-in animation when scrolling
+      document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+          observer.observe(element);
+          // Set initial state for animation
+          element.style.opacity = 0;
+          element.style.transform = 'translateY(20px)';
+          element.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+        });
+      });
+    </script>
+  </body>
+</html>

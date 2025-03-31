@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kahlil Ian R. Dienzo - Hobbies</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="navbar-logo">Kahlil Ian</a>
+        
+        <div class="navbar-toggle" onclick="toggleMenu()">
+          ☰
+        </div>
+        
+        <ul id="navbar-menu" class="navbar-menu">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" onclick="closeMenu()">Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="profile.html" class="navbar-link" onclick="closeMenu()">Profile</a>
+          </li>
+          <li class="navbar-item">
+            <a href="hobbies.html" class="navbar-link" onclick="closeMenu()">Hobbies</a>
+          </li>
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" onclick="closeMenu()">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="hobbies" class="hobbies">
+      <div class="container">
+        <h2 class="fade-in">My Hobbies</h2>
+        <p class="fade-in">Here are some of the things I love to do in my free time.</p>
+        
+        <div class="hobbies-container">
+          <div class="hobbies-grid">
+            <div class="hobby-card fade-in">
+              <div class="hobby-img">
+                <img src="https://source.unsplash.com/random/600x400/?manga" alt="Reading Manga" />
+              </div>
+              <div class="hobby-content">
+                <h3>Reading Manga</h3>
+                <p>I love diving into different manga series, especially romance and sports genres like Blue Box. The artwork and storytelling are what I appreciate the most.</p>
+              </div>
+            </div>
+            
+            <div class="hobby-card fade-in">
+              <div class="hobby-img">
+                <img src="https://source.unsplash.com/random/600x400/?anime" alt="Watching Anime" />
+              </div>
+              <div class="hobby-content">
+                <h3>Watching Anime</h3>
+                <p>Anime has always been my escape from reality. I enjoy various genres but romance anime has a special place in my heart, especially slice-of-life ones.</p>
+              </div>
+            </div>
+            
+            <div class="hobby-card fade-in">
+              <div class="hobby-img">
+                <img src="https://source.unsplash.com/random/600x400/?gaming" alt="Playing Video Games" />
+              </div>
+              <div class="hobby-content">
+                <h3>Playing Video Games</h3>
+                <p>Video games are not just entertainment for me; they're an interactive way to experience stories and challenges. I enjoy various genres from adventure to strategy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('navbar-menu');
+        menu.classList.toggle('active');
+      }
+      
+      function closeMenu() {
+        const menu = document.getElementById('navbar-menu');
+        menu.classList.remove('active');
+      }
+      
+      // Add fade-in animation when scrolling
+      document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+          observer.observe(element);
+          // Set initial state for animation
+          element.style.opacity = 0;
+          element.style.transform = 'translateY(20px)';
+          element.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+        });
+      });
+    </script>
+  </body>
+</html>
